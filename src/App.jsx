@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import React from "react";
+import StockForm from "./components/StockForm.jsx";
+import StockList from "./components/StockList.jsx";
+import { StockProvider } from "./context/StockContext.jsx";
+import financeIcon from "./assets/finance-dashboard-icon.png";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <StockProvider>
+      <div className="app-container">
+        <header className="app-header">
+          {/* 2. Use the imported variable in the src attribute */}
+          <img src={financeIcon} alt="Finance Icon" className="header-icon" />
+          <h1>Finance Dashboard</h1>
+        </header>
+
+        <main>
+          <StockForm />
+
+          <div className="stock-list-section">
+            <h2>Stock List</h2>
+            <StockList />
+          </div>
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </StockProvider>
+  );
 }
 
-export default App
+export default App;
