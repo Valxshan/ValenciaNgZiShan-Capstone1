@@ -25,11 +25,9 @@ export const StockProvider = ({ children }) => {
 
       if (!quote || !quote["05. price"]) {
         console.warn("Invalid API response for symbol:", symbol, quote);
-
         setError(
           `Could not retrieve data for ${symbol.toUpperCase()}. It may be an invalid symbol or an API limit issue.`
         );
-
         setLoadingSymbol(null);
         return;
       }
@@ -53,14 +51,25 @@ export const StockProvider = ({ children }) => {
     }
   }, []);
 
+  const updateStockPrice = useCallback((symbol, newPrice) => {
+    setStocks((prevStocks) =>
+      prevStocks.map((stock) =>
+        stock.symbol === symbol ? { ...stock, currentPrice: newPrice } : stock
+      )
+    );
+  }, []);
+
   const value = {
     stocks,
     addStock,
     error,
     loadingSymbol,
+    updateStockPrice, // ✅ added
   };
 
   return (
     <StockContext.Provider value={value}>{children}</StockContext.Provider>
   );
 };
+
+export { StockContext };

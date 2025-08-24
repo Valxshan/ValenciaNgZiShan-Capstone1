@@ -14,7 +14,6 @@ export const fetchStockQuote = async (symbol) => {
     return data["Global Quote"];
   } catch (error) {
     console.error("Failed to fetch stock data:", error);
-    // Return null or throw an error to be handled by the caller
     return null;
   }
 };
