@@ -82,7 +82,7 @@ body {
 }
 
 .stock-form button:disabled {
-  background-color: #555;
+  background-color: #555555;
   cursor: not-allowed;
 }
 
@@ -115,7 +115,7 @@ body {
   padding: 1rem;
   margin-bottom: 1rem;
   background-color: var(--card-bg);
-  border: 1px solid #eee;
+  border: 1px solid #eeeeee;
   border-radius: var(--border-radius);
   transition: box-shadow 0.2s ease;
 }
