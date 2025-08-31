@@ -30,12 +30,18 @@ const StockItem = ({ stock }) => {
           Purchase Price: <span>{formatCurrency(purchasePrice)}</span>
         </p>
         <p>
-          Current Price: <span>{formatCurrency(currentPrice)}</span>
+          Current Price:{" "}
+          <span>
+            {currentPrice ? formatCurrency(currentPrice) : "Loading..."}
+          </span>
         </p>
       </div>
       <div className="stock-profit">
         <p className={profitLossClass}>
-          Profit/Loss: <span>{formatCurrency(profitLoss)}</span>
+          Profit/Loss:{" "}
+          <span>
+            {currentPrice ? formatCurrency(profitLoss) : "Loading..."}
+          </span>
         </p>
       </div>
     </div>

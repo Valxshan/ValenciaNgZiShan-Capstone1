@@ -9,12 +9,16 @@ const StockForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!symbol && !quantity && !purchasePrice) {
+    if (!symbol || !quantity || !purchasePrice) {
       alert("Please fill in all fields.");
       return;
     }
     // Convert symbol to uppercase for consistency
-    const stockData = { symbol: symbol.toUpperCase(), quantity, purchasePrice };
+    const stockData = {
+      symbol: symbol.toUpperCase(),
+      quantity,
+      purchasePrice,
+    };
     addStock(stockData);
 
     // Clear form fields after submission
