@@ -107,14 +107,14 @@ body {
   color: #6c757d;
 }
 
+/* --- Stock Item --- */
 .stock-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 1rem;
   margin-bottom: 1rem;
-  background-color: #fff;
+  background-color: var(--card-bg);
   border: 1px solid #eee;
   border-radius: var(--border-radius);
   transition: box-shadow 0.2s ease;
@@ -133,15 +133,21 @@ body {
   margin: 0.25rem 0;
   color: #6c757d;
 }
+
 .stock-item span {
   font-weight: bold;
   color: var(--text-color);
 }
 
-.positive span {
+/* Profit/Loss Colors */
+.positive span,
+.positive {
   color: var(--positive-color) !important;
+  font-weight: bold;
 }
 
-.negative span {
+.negative span,
+.negative {
   color: var(--negative-color) !important;
+  font-weight: bold;
 }
